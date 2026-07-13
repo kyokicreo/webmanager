@@ -57,3 +57,15 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
         raise credentials_exception
 
     return user
+
+
+def require_admin(current_user: models.User = Depends(get_current_user)):
+    if current_user.role not in ("admin", "superadmin"):
+        raise HTTPException(status_code=403, detail="Требуются права администратора")
+    return current_user
+
+
+def require_superadmin(current_user: models.User = Depends(get_current_user)):
+    if current_user.role != "superadmin":
+        raise HTTPException(status_code=403, detail="Требуются права главного администратора")
+    return current_user

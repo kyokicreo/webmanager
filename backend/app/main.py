@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 from app import models
-from app.routers import auth, files, history
+from app.routers import auth, files, history, admin
 
 Base.metadata.create_all(bind=engine)
 
@@ -20,6 +20,7 @@ app.include_router(auth.router, prefix="/auth", tags=["Authentication"])
 app.include_router(files.router, prefix="/files", tags=["Files"])
 app.include_router(history.router, prefix="/history", tags=["History"])
 
+app.include_router(admin.router, prefix="/admin", tags=["Admin"])
 
 @app.get("/")
 def read_root():

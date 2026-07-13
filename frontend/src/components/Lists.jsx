@@ -6,7 +6,7 @@ const Lists = () => {
     const [list, setList] = useState([])
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/files/list', {
+        axios.get('http://localhost:8000/files/list-view', {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
             .then((res) => {

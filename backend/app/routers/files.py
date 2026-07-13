@@ -63,3 +63,15 @@ def delete_file(
     except (FileNotFoundError, ValueError, OSError) as e:
         log_operation(db, current_user, "DELETE", operation.path, False, str(e))
         return {"success": False, "message": str(e), "data": []}
+
+
+@router.get("/list-view", response_model=schemas.FileResponse)
+def list_files_view(
+    path: str = "",
+    current_user: models.User = Depends(get_current_user),
+):
+    try:
+        entries = file_manager.list_directory(path)
+        return {"success": True, "message": "OK", "data": entries}
+    except (FileNotFoundError, NotADirectoryError, ValueError) as e:
+        return {"success": False, "message": str(e), "data": []}

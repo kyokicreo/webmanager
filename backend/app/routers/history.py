@@ -8,12 +8,7 @@ from app.auth_utils import get_current_user
 router = APIRouter()
 
 
-@router.get("/", response_model=list[schemas.HistoryEntry])
-def get_history(
-    limit: int = 50,
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
-):
+def build_history_response(db: Session, current_user: models.User, limit: int):
     operations = (
         db.query(models.Operation)
         .join(models.User)
@@ -35,5 +30,34 @@ def get_history(
                 message=op.message,
             )
         )
+    return result
+
+
+@router.get("/", response_model=list[schemas.HistoryEntry])
+def get_history(
+    limit: int = 50,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    result = build_history_response(db, current_user, limit)
+
+    operation = models.Operation(
+        user_id=current_user.id,
+        command="HISTORY",
+        path="",
+        success=True,
+        message="OK",
+    )
+    db.add(operation)
+    db.commit()
 
     return result
+
+
+@router.get("/view", response_model=list[schemas.HistoryEntry])
+def get_history_view(
+    limit: int = 50,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    return build_history_response(db, current_user, limit)

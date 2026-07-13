@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96fd2f38-8f2c-47ee-b80f-f324aa6a25f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/create_superuser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routers/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Tab.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Tab.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/files.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/history.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/history.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/History.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/History.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Lists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Lists.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NotFound.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NotFound.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Tab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Tab.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +43,65 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.373733289616326" />
+      <entry key="MS500" value="2.9509416342633195" />
+      <entry key="S2" value="7.105863573877436" />
+      <entry key="S5" value="10.240658053909593" />
+      <entry key="S10" value="11.882535864426943" />
+      <entry key="S30" value="13.232065263826525" />
+      <entry key="S60" value="13.607599205332988" />
+      <entry key="M2" value="13.80163723232028" />
+      <entry key="M5" value="13.92012883968657" />
+      <entry key="M10" value="13.959976146678276" />
+      <entry key="M15" value="13.973297770329745" />
+      <entry key="M30" value="13.986639043612465" />
+      <entry key="H1" value="13.993317059323656" />
+      <entry key="H2" value="13.996657913779163" />
+      <entry key="H4" value="13.998328802886155" />
+      <entry key="D1" value="13.999721445755545" />
+      <entry key="W1" value="13.999960206012581" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.3362028967637691" />
+      <entry key="MS500" value="2.9302647390117467" />
+      <entry key="S2" value="7.083633565219699" />
+      <entry key="S5" value="10.224178905818626" />
+      <entry key="S10" value="11.87202465927625" />
+      <entry key="S30" value="13.22790190758811" />
+      <entry key="S60" value="13.605423132958965" />
+      <entry key="M2" value="13.800524601332645" />
+      <entry key="M5" value="13.91967775242567" />
+      <entry key="M10" value="13.959749586030329" />
+      <entry key="M15" value="13.973146503056649" />
+      <entry key="M30" value="13.986563296345354" />
+      <entry key="H1" value="13.993279157243018" />
+      <entry key="H2" value="13.996638955622142" />
+      <entry key="H4" value="13.99831932202785" />
+      <entry key="D1" value="13.999719865365243" />
+      <entry key="W1" value="13.999959980236488" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1,
   &quot;fromUser&quot;: false
@@ -36,9 +113,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -101,7 +180,8 @@
       <option name="presentableId" value="Default" />
       <updated>1783599688338</updated>
       <workItem from="1783599699282" duration="8595000" />
-      <workItem from="1783674958077" duration="6221000" />
+      <workItem from="1783674958077" duration="8037000" />
+      <workItem from="1783939552074" duration="5264000" />
     </task>
     <servers />
   </component>

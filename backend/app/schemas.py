@@ -10,6 +10,7 @@ class UserCreate(BaseModel):
 class UserOut(BaseModel):
     id: int
     username: str
+    role: str
     created_at: datetime
 
     class Config:

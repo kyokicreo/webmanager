@@ -14,7 +14,7 @@ const History = () => {
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (!token) return navigate('/')
-        axios.get('http://127.0.0.1:8000/history/', {
+        axios.get('http://localhost:8000/history/view', {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         },)
             .then(res => {

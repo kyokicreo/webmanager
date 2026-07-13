@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -10,12 +10,17 @@ const Login = () => {
     const [output, setOutput] = useState("")
     const navigate = useNavigate()
 
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) navigate('/tab')
+    }, [])
+
     const LoginFunction = () => {
         const formData = new URLSearchParams();
         formData.append('username', value1);
         formData.append('password', value2);
 
-        axios.post('http://127.0.0.1:8000/auth/login', formData, {
+        axios.post('http://localhost:8000/auth/login', formData, {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         })
             .then(response => {

@@ -1,29 +1,35 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Register = () => {
     const [value1, setValue1] = useState("")
     const [value2, setValue2] = useState("")
     const [output, setOutput] = useState("")
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) return navigate('/tab')
+    }, [])
 
     const RegisterFunction = () => {
-        if(!value1 || !value2) {
+        if (!value1 || !value2) {
             setOutput("Заполни поля")
             return
         }
         axios
-            .post("http://127.0.0.1:8000/auth/register", {
+            .post("http://localhost:8000/auth/register", {
                 username: value1,
                 password: value2,
             })
-        .then(() => {
-            setOutput("Регистрация успешна")
-        })
-        .catch(() => {
-            setOutput("Имя занято")
-        })
-        
+            .then(() => {
+                setOutput("Регистрация успешна")
+            })
+            .catch(() => {
+                setOutput("Имя занято")
+            })
+
     }
     return (
         <div>
