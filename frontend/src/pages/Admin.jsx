@@ -51,7 +51,7 @@ const Admin = ({ role, currentUserId }) => {
             .then(() => loadUsers())
             .catch(err => alert(err.response?.data?.detail || 'Ошибка назначения'))
     }
-ля
+
     const canManage = (targetUser) => {
         if (targetUser.id === currentUserId) return false
         if (targetUser.role === 'user') return true

@@ -29,8 +29,7 @@ def delete_user(
     if not user:
         raise HTTPException(status_code=404, detail="Пользователь не найден")
 
-    # Обычные пользователи может удалять любой админ.
-    # Админов может удалять только суперадмин.
+
     if user.role in ("admin", "superadmin") and current_user.role != "superadmin":
         raise HTTPException(status_code=403, detail="Только главный администратор может удалять администраторов")
 

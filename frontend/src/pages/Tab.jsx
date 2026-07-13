@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import './Tab.css'
 import { Link } from 'react-router-dom'
 import History from '../components/History'
 import Lists from '../components/Lists'
 import Admin from './Admin'
+import Create from '../components/Create'
+import Delete from '../components/Delete'
 
 const Tab = () => {
   const navigate = useNavigate()
@@ -31,6 +32,8 @@ const Tab = () => {
       {(role === 'admin' || role === 'superadmin') && (
         <Admin role={role} currentUserId={currentUserId} />
       )}
+      <Create />
+      <Delete />
     </div>
   )
 }

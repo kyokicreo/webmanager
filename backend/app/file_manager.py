@@ -5,17 +5,24 @@ ROOT_DIR = Path("./storage").resolve()
 ROOT_DIR.mkdir(exist_ok=True)
 
 
-def resolve_path(relative_path: str) -> Path:
-    target = (ROOT_DIR / relative_path).resolve()
+def get_user_root(username: str) -> Path:
+    user_dir = ROOT_DIR / username
+    user_dir.mkdir(exist_ok=True)
+    return user_dir
 
-    if not str(target).startswith(str(ROOT_DIR)):
+
+def resolve_path(username: str, relative_path: str) -> Path:
+    user_root = get_user_root(username)
+    target = (user_root / relative_path).resolve()
+
+    if not str(target).startswith(str(user_root)):
         raise ValueError("Path is outside of the allowed root directory")
 
     return target
 
 
-def list_directory(relative_path: str = "") -> list[str]:
-    target = resolve_path(relative_path)
+def list_directory(username: str, relative_path: str = "") -> list[str]:
+    target = resolve_path(username, relative_path)
 
     if not target.exists():
         raise FileNotFoundError("Path does not exist")
@@ -32,8 +39,8 @@ def list_directory(relative_path: str = "") -> list[str]:
     return result
 
 
-def create_directory(relative_path: str) -> None:
-    target = resolve_path(relative_path)
+def create_directory(username: str, relative_path: str) -> None:
+    target = resolve_path(username, relative_path)
 
     if target.exists():
         raise FileExistsError("Path already exists")
@@ -41,8 +48,8 @@ def create_directory(relative_path: str) -> None:
     target.mkdir(parents=False)
 
 
-def delete_path(relative_path: str) -> None:
-    target = resolve_path(relative_path)
+def delete_path(username: str, relative_path: str) -> None:
+    target = resolve_path(username, relative_path)
 
     if not target.exists():
         raise FileNotFoundError("Path does not exist")

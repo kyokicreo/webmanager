@@ -5,6 +5,7 @@ import Tab from './pages/Tab'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound'
+import './index.css'
 
 const App = () => {
   return (
