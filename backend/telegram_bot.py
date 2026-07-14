@@ -1,11 +1,15 @@
+import os
 import asyncio
+from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
 
 from app.database import SessionLocal
 from app import models
 
-BOT_TOKEN = "8842165159:AAHunFotrDzMy5wB8iETIHqybINBSPIzmCA"
+load_dotenv()
+
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
@@ -32,7 +36,6 @@ async def start_handler(message: types.Message):
 
     user = db.query(models.User).filter(models.User.id == link_code.user_id).first()
     user.telegram_chat_id = chat_id
-
     username = user.username
 
     db.delete(link_code)

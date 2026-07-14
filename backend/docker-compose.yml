@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:16
+    container_name: webmanager_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: LVKAx135
+      POSTGRES_DB: file_manager_web
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - webmanager_net
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: webmanager_backend
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: "postgresql://postgres:LVKAx135@db:5432/file_manager_web"
+    ports:
+      - "8000:8000"
+    networks:
+      - webmanager_net
+
+networks:
+  webmanager_net:
+    driver: bridge
+
+volumes:
+  pgdata:
