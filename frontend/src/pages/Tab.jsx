@@ -7,6 +7,7 @@ import Lists from '../components/Lists'
 import Admin from './Admin'
 import Create from '../components/Create'
 import Delete from '../components/Delete'
+import TelegramLink from '../components/functions/TelegramLink'
 
 const Tab = () => {
   const navigate = useNavigate()
@@ -34,6 +35,7 @@ const Tab = () => {
       )}
       <Create />
       <Delete />
+      <button className="tgbut" onClick={TelegramLink}>Войти с телеграм</button>
     </div>
   )
 }

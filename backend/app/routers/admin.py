@@ -20,7 +20,7 @@ def list_users(
 def delete_user(
     user_id: int,
     db: Session = Depends(get_db),
-    current_user: models.User = Depends(require_admin),
+    current_user: models.User = Depends(require_superadmin),
 ):
     if user_id == current_user.id:
         raise HTTPException(status_code=400, detail="Нельзя удалить самого себя")
@@ -29,14 +29,9 @@ def delete_user(
     if not user:
         raise HTTPException(status_code=404, detail="Пользователь не найден")
 
-
-    if user.role in ("admin", "superadmin") and current_user.role != "superadmin":
-        raise HTTPException(status_code=403, detail="Только главный администратор может удалять администраторов")
-
     db.delete(user)
     db.commit()
     return {"success": True, "message": f"Пользователь {user.username} удалён"}
-
 
 @router.post("/users/{user_id}/reset-password")
 def reset_password(

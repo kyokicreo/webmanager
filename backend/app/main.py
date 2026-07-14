@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 from app import models
-from app.routers import auth, files, history, admin
+from app.routers import auth, files, history, admin, telegram
 
 Base.metadata.create_all(bind=engine)
 
@@ -21,7 +21,7 @@ app.include_router(files.router, prefix="/files", tags=["Files"])
 app.include_router(history.router, prefix="/history", tags=["History"])
 
 app.include_router(admin.router, prefix="/admin", tags=["Admin"])
-
+app.include_router(telegram.router, prefix="/telegram", tags=["Telegram"])
 @app.get("/")
 def read_root():
     return {"message": "FastAPI работает!"}

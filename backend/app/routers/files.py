@@ -4,8 +4,10 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app import models, schemas, file_manager
 from app.auth_utils import get_current_user
+from app.telegram_notify import send_telegram_message
 
 router = APIRouter()
+
 
 
 def log_operation(db: Session, user: models.User, command: str, path: str, success: bool, message: str):
@@ -19,6 +21,12 @@ def log_operation(db: Session, user: models.User, command: str, path: str, succe
     db.add(operation)
     db.commit()
 
+    if user.telegram_chat_id:
+        status = "успешно" if success else "с ошибкой"
+        send_telegram_message(
+            user.telegram_chat_id,
+            f"Действие {command} ({path}) выполнено {status}: {message}"
+        )
 
 @router.get("/list-view", response_model=schemas.FileResponse)
 def list_files_view(
@@ -75,3 +83,4 @@ def delete_file(
     except (FileNotFoundError, ValueError, OSError) as e:
         log_operation(db, current_user, "DELETE", operation.path, False, str(e))
         return {"success": False, "message": str(e), "data": []}
+

@@ -10,7 +10,7 @@ const Admin = ({ role, currentUserId }) => {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
             .then(res => setUsers(res.data))
-            .catch(() => {})
+            .catch(() => { })
     }
 
     useEffect(() => {
@@ -58,6 +58,9 @@ const Admin = ({ role, currentUserId }) => {
         return role === 'superadmin'
     }
 
+    const canDelete = (targetUser) => {
+        return role === 'superadmin' && targetUser.id !== currentUserId
+    }
     return (
         <div>
             <h2>Панель администратора — пользователи</h2>
@@ -90,10 +93,10 @@ const Admin = ({ role, currentUserId }) => {
                             </td>
                             <td>
                                 {canManage(user) && (
-                                    <>
-                                        <button onClick={() => handleResetPassword(user.id)}>Сбросить пароль</button>
-                                        <button onClick={() => handleDelete(user.id)}>Удалить</button>
-                                    </>
+                                    <button onClick={() => handleResetPassword(user.id)}>Сбросить пароль</button>
+                                )}
+                                {canDelete(user) && (
+                                    <button onClick={() => handleDelete(user.id)}>Удалить</button>
                                 )}
                                 {role === 'superadmin' && user.role === 'user' && (
                                     <button onClick={() => handlePromote(user.id)}>Сделать админом</button>
